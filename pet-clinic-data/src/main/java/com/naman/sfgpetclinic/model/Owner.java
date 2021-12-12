@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name = "owners")
 public class Owner extends Person {
 
-    @Builder(builderMethodName = "ownerBuilder")
+    @Builder
     public Owner(Long id,
                  String firstName,
                  String lastName,
@@ -26,7 +26,7 @@ public class Owner extends Person {
         this.address = address;
         this.city = city;
         this.telephone = telephone;
-        this.pets = pets;
+        if (pets != null) this.pets = pets;
     }
 
     @Column(name = "address")
